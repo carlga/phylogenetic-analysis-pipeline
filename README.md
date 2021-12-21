@@ -48,3 +48,15 @@ ATGTACTG
 >seq4
 ATGT-CTG-
 ```
+
+`02_DistanceMatrix.pl` will count pairwise differences between the aligned sequences and
+return them in the form of a distance matrix.
+
+```
+$ perl 02_DistanceMatrix.pl data/aligned_seqs.fa
+# seq1 | seq2 | seq3 | seq4
+0       3       3       3
+3       0       5       5
+3       5       0       2
+3       5       2       0
+```
