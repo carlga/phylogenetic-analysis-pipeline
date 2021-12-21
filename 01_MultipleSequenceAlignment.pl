@@ -22,11 +22,12 @@ my @toalign = (0..$n-1);
 # find best scoring pair and align
 #
 my @score_mtx = ( map( [(0)x$n], (0..$n-1) ) );
-foreach my $i (1..$n-1) {
-    foreach my $j (0..$i-1) {
+foreach my $i (0..$n-1) {
+    foreach my $j ($i+1..$n-1) {
         my $seq1 = $sequences{$headers[$i]};
         my $seq2 = $sequences{$headers[$j]};
         $score_mtx[$i][$j] = (scoreAlign($seq1, $seq2))[0];
+        $score_mtx[$j][$i] = $score_mtx[$i][$j];
     }
 }
 my ($i, $j) = maxVal(\@score_mtx);
@@ -62,8 +63,8 @@ while (scalar(@toalign) > 0) {
 }
 
 my $score = 0;
-foreach my $i (1..$#alignment) {
-    foreach my $j (0..$i-1) {
+foreach my $i (0..$#alignment) {
+    foreach my $j ($i+1..$#alignment) {
         $score += (scoreAlign($alignment[$i], $alignment[$j]))[0];
     }
 }
@@ -102,7 +103,7 @@ sub readFasta {
     return(\@headers, \%sequences);
 }
 
-# 
+# scores alignment of a pair of sequences
 sub scoreAlign {
     my ( $seq1, $seq2 ) = @_;
     my $n1 = length($seq1);
@@ -130,6 +131,7 @@ sub scoreAlign {
     return($score, \@trace);
 }
 
+# finds highest value in matrix
 sub maxVal {
 	my @mtx = @{shift(@_)};
 	my $max;
@@ -148,6 +150,7 @@ sub maxVal {
     return($i,$j);
 }
 
+# aligns a pair of sequences
 sub seqAlign {
     my $seq1 = shift;
     my $seq2 = shift;
