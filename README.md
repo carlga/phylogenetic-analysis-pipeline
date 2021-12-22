@@ -14,6 +14,8 @@
 
 The usage is simple: each individual script can be run in the command line with adequate file input.
 
+### 1. Multiple sequence alignment
+
 Sequences are provided in fasta format to `01_MultipleSequenceAlignment.pl`. 
 These are optimally aligned to have the same length and returned as stdout.
 
@@ -49,14 +51,16 @@ ATGTACTG
 ATGT-CTG-
 ```
 
+### 2. Distance matrix calculation
+
 `02_DistanceMatrix.pl` will count pairwise differences between the aligned sequences and
 return them in the form of a distance matrix.
 
 ```
 $ perl 02_DistanceMatrix.pl data/aligned_seqs.fa
 # seq1 | seq2 | seq3 | seq4
-0       3       3       3
-3       0       5       5
-3       5       0       2
-3       5       2       0
+0       3       3       2
+3       0       5       4
+3       5       0       1
+2       4       1       0
 ```
