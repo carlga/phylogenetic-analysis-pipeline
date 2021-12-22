@@ -28,7 +28,7 @@ ATAT-CCG
 >seq3
 ATGTACTG
 >seq4
-ATGT-CTG-
+ATGT-CTG
 ```
 
 Output can be easily stored to a new file with:
@@ -48,7 +48,7 @@ ATAT-CCG
 >seq3
 ATGTACTG
 >seq4
-ATGT-CTG-
+ATGT-CTG
 ```
 
 ### 2. Distance matrix calculation
