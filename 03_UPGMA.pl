@@ -35,7 +35,7 @@ if ($n != scalar(@dist_mtx)) {
 #
 # initialize variables
 #
-my @tree = ( map( [(0)x(2*$n-1)], (0..2*$n-2) ) );  # total nodes = 2n-1
+my @tree = ( map( [(-1)x(2*$n-1)], (0..2*$n-2) ) );  # total nodes = 2n-1
 my @toblock;
 my @node_dist = ( (0)x$n );
 my @node_groups = (0..$n-1);
@@ -77,7 +77,7 @@ while ($total_groups > 0) {
 print "# ".join(" | ", @headers)."\n";
 foreach my $i (0..$#tree) {
     foreach my $j (0..$#tree) {
-        if ($tree[$i][$j]) {
+        if ($tree[$i][$j] != -1) {
             $tree[$i][$j] = abs($node_dist[$i]-$node_dist[$j]);
             printf "%d->%d:%0.3f\n", $i, $j, $tree[$i][$j];
         }
