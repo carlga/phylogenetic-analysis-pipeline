@@ -64,3 +64,26 @@ $ perl 02_DistanceMatrix.pl data/aligned_seqs.fa
 3       5       0       1
 2       4       1       0
 ```
+
+### 3. Phylogenetic tree inference
+
+`03_UPGMA.pl` allows to reconstruct a phylogenetic tree by applying the 
+*Unweighted Pair Group Method with Arithmetic mean*. Output is formatted as a node adjacency
+list where the first *n* nodes correspond to the *n* ids in the header (leaves of the tree).
+
+```
+$ perl 03_UPGMA.pl data/dist_mtx.txt
+# seq1 | seq2 | seq3 | seq4
+0->5:1.250
+1->6:2.000
+2->4:0.500
+3->4:0.500
+4->2:0.500
+4->3:0.500
+4->5:0.750
+5->0:1.250
+5->4:0.750
+5->6:0.750
+6->1:2.000
+6->5:0.750
+```
