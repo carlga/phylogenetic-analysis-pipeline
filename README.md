@@ -7,10 +7,12 @@
 > The code was developed as a practice exercise and is provided as is for those learning and/or seeking for inspiration.
 > Kindly drop a :star: if this is helpful!
 
-![infographic](./pics/phylogenetic-analysis-pipeline.png)
+| ![infographic](./pics/phylogenetic-analysis-pipeline.png) |
+|:--:|
+| ***Phylogenetic reconstruction workflow.*** |
 
 
-## Basic examples
+## Usage
 
 The usage is simple: each individual script can be run in the command line with adequate file input.
 
